@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-//import Modal from './components/Modal/Modal';
+import MyModal from './components/Modal/Modal';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
 class App extends React.Component {
   constructor(...args) {
@@ -19,13 +19,13 @@ class App extends React.Component {
     return (
       <ButtonToolbar>
         <Button
-          variant="primary"
+          variant="secondary" 
           onClick={() => this.setState({ modalShow: true })}
         >
           Show
         </Button>
 
-        <Modal
+        <MyModal
           show={this.state.modalShow}
           onHide={modalClose}
         />

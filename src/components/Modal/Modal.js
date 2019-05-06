@@ -1,6 +1,16 @@
 import React from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import MyTop from './Top';
+import Left from './Left'
+import Right from './Right'
 
-class Modal extends React.Component {
+class MyModal extends React.Component {
+    constructor(...args) {
+        super(...args);
+    
+        this.state = { Show: true };
+      }
     render() {
       return (
         <Modal
@@ -11,22 +21,29 @@ class Modal extends React.Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Modal heading
+              Filters
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Centered Modal</h4>
-            <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-              ac consectetur ac, vestibulum at eros.
-            </p>
+            <MyTop
+                show={this.state.Show}
+            />
+            <div className='rowC'>
+                <Left 
+                    show={this.state.Show}
+                />
+                <Right 
+                    show={this.state.Show}
+                />
+            </div>           
+
+            <Button variant="secondary" onClick={this.props.onHide}>Apply Filters</Button>         
+      
           </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.props.onHide}>Close</Button>
-          </Modal.Footer>
+        
+        
         </Modal>
       );
     }
   }
-  
+  export default MyModal;

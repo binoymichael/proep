@@ -31,3 +31,14 @@
     transform: rotate(360deg);
   }
 }
+
+.secondary {
+  background-color: #773495;
+  color: #fff;
+}
+
+.rowC{
+  display:flex; 
+  flex-direction:row;
+  
+}
