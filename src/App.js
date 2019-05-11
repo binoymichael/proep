@@ -21,8 +21,7 @@ class App extends React.Component {
         <Button
           variant="secondary" 
           onClick={() => this.setState({ modalShow: true })}
-        >
-          Show
+        > Show
         </Button>
 
         <MyModal
@@ -34,5 +33,4 @@ class App extends React.Component {
   }
 }
 
-//render(<App />);
 export default App;

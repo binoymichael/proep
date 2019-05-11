@@ -1,14 +1,24 @@
 import React from 'react';
-import { MDBInput } from 'mdbreact';
-
 const Left = () => {
   return (
-    <div>
-      <MDBInput label="Year 1" filled type="checkbox" id="checkbox1" />
-      <MDBInput label="Year 2" filled type="checkbox" id="checkbox2" />
-      <MDBInput label="Year 3" filled type="checkbox" id="checkbox3" />
-      <MDBInput label="Year 4" filled type="checkbox" id="checkbox4" />       
-    </div>
+    <form action="#">
+      <p>
+        <input type="checkbox" id="year1" />
+        <label for="year1">Year 1</label>         
+      </p> 
+      <p>
+        <input type="checkbox" id="year2" />
+        <label for="year2">Year 2</label>
+      </p> 
+      <p>
+        <input type="checkbox" id="year3" />
+        <label for="year3">Year 3</label>
+      </p> 
+      <p>
+        <input type="checkbox" id="year4" />
+        <label for="year4">Year 4</label>
+      </p> 
+    </form>
   )
 }
 

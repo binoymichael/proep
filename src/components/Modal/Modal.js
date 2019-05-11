@@ -20,24 +20,19 @@ class MyModal extends React.Component {
           centered
         >
           <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
-              Filters
-            </Modal.Title>
+            <div id="contained-modal-title-vcenter">
+              <h3>Filters</h3>
+            </div>
           </Modal.Header>
           <Modal.Body>
-            <MyTop
-                show={this.state.Show}
-            />
-            <div className='rowC'>
-                <Left 
-                    show={this.state.Show}
-                />
-                <Right 
-                    show={this.state.Show}
-                />
+            <MyTop show={this.state.Show} />
+
+            <div id='wrapper'>
+                <div id ='left'> <Left show={this.state.Show} /> </div>
+                <div id ='right'> <Right show={this.state.Show} /> </div>
             </div>           
 
-            <Button variant="secondary" onClick={this.props.onHide}>Apply Filters</Button>         
+            <button class="button" onClick={this.props.onHide}>Apply Filters</button>         
       
           </Modal.Body>
         
