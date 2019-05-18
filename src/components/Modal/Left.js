@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { Component }from 'react';
+class Left extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { checked: false }
 
-const Left = (props) => {
-  return (
-    <form action="#">
-      <p>
-        <input type="checkbox" onclick={props.checkboxHandler} id="cbName" />
-        <label for="cbName">{props.title}</label>         
-      </p>  
-    </form>
-  )
+    
+  }
+  handleCheck= event =>
+    this.setState({ checked: event.target.checked })
+
+  render(){
+    return (
+      <form action="#">
+        <p>
+          <input type="checkbox" onChange={this.handleCheck} id="cbName" />
+          <label htmlFor="cbName">{this.props.title}</label>         
+        </p>  
+      </form>
+    );
+  }  
 }
-
 export default Left;
