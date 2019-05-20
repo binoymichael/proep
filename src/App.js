@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MyModal from './components/Modal/Modal';
-import Modal from 'react-bootstrap/Modal';
+import MyCourseModal from './components/Modal/CourseModal';
+import MyProgressModal from './components/Modal/ProgressModal';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
@@ -20,11 +20,20 @@ class App extends React.Component {
       <ButtonToolbar>
         <Button
           variant="secondary" 
-          onClick={() => this.setState({ modalShow: true })}
-        > Show
+          onClick={() => this.setState({ modalShow: true })} > Filter 1
         </Button>
 
-        <MyModal
+        <Button
+          variant="secondary" 
+          onClick={() => this.setState({ modalShow: true })} > Filter 2
+        </Button>
+
+        <MyCourseModal
+          show={this.state.modalShow}
+          onHide={modalClose}
+        />
+
+        <MyProgressModal
           show={this.state.modalShow}
           onHide={modalClose}
         />
