@@ -12,11 +12,18 @@ class App extends React.Component {
 
     this.clientId = 'i376218-studyinsig';
     this.clientSecret = 'Pdr2bXdDAh3hB55ZM11Ehc6BPnBjesuqMcK5EQX8';
+    this.logIn = this.logIn.bind(this);
     this.state = { 
       modalShow: false,
       userLoggedIn: false,
 			buildings: null
     };
+  }
+
+  logIn() {
+    console.log('User not logged in. Redirecting ...');
+    const url = `https://identity.fhict.nl/connect/authorize?client_id=${this.clientId}&scope=fhict&redirect_uri=http://localhost:3000/dashboard&response_type=code`;
+    window.location = url;
   }
 
   findGetParameter(queryString, parameterName) {
@@ -51,9 +58,6 @@ class App extends React.Component {
         // This is not a redirect from fontys. This is something else.
       }
     } else {
-      console.log('User not logged in. Redirecting ...');
-      const url = `https://identity.fhict.nl/connect/authorize?client_id=${this.clientId}&scope=fhict&redirect_uri=http://localhost:3000/dashboard&response_type=code`;
-      window.location = url;
     }
   }
 
@@ -77,15 +81,11 @@ class App extends React.Component {
     let modalClose = () => this.setState({ modalShow: false });
 
     return (
-      this.state.userLoggedIn && (<ButtonToolbar>
+      <ButtonToolbar>
         <Button
           variant="secondary" 
-          onClick={() => this.setState({ modalShow: true })} > Filter 1
-        </Button>
-
-        <Button
-          variant="secondary" 
-          onClick={() => this.setState({ modalShow: true })} > Filter 2
+          onClick={this.state.userLoggedIn ? (() => this.setState({ modalShow: true })) : this.logIn}> 
+          {this.state.userLoggedIn ? "Filter 2" : "Login" }
         </Button>
 
         <MyCourseModal
@@ -99,7 +99,7 @@ class App extends React.Component {
         />
 
 				<p>{this.state.buildings}</p>
-      </ButtonToolbar>)
+      </ButtonToolbar>
     );
   }
 }
